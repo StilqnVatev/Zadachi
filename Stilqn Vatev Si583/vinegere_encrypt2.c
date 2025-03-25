@@ -4,7 +4,7 @@
 #include <ctype.h>
 #define MAXN 1024
 
-char* vigenere_encrypt(char* plaintext, char* key)
+char* vigenere_encrypt2(char* plaintext, char* key)
 {
     int text_length = strlen(plaintext);
     int key_length = strlen(key);
@@ -36,13 +36,13 @@ char* vigenere_encrypt(char* plaintext, char* key)
 
 int main()
 {
-    FILE *fileptr=fopen("cezar.txt","r");
+    FILE *fileptr=fopen("","r");
     char text[MAXN];
     fgets(text,sizeof(text), fileptr);
     printf("Encrypted: %s", text);
     int key;
     scanf("%d", &key);
-    char* cipher = cezar_cipher(text,key);
+    char* cipher = vigenere_encrypt2(text,key);
     printf("Decrypted: %s",cipher);
     fclose(fileptr);
     free(cipher);
